@@ -1,0 +1,12 @@
+diff -up tpm2-pytss-1.2.0/test/test_crypto.py.old tpm2-pytss-1.2.0/test/test_crypto.py
+--- tpm2-pytss-1.2.0/test/test_crypto.py.old	2022-10-17 15:26:41.205419193 +0200
++++ tpm2-pytss-1.2.0/test/test_crypto.py	2022-10-17 15:28:29.717379140 +0200
+@@ -581,7 +581,7 @@ class CryptoTest(TSS2_EsapiTest):
+     def test_ecc_bad_curves(self):
+         with self.assertRaises(ValueError) as e:
+             pub = TPMT_PUBLIC.from_pem(ecc_bad_curve)
+-        self.assertEqual(str(e.exception), "unsupported curve: sect163r2")
++        self.assertEqual(str(e.exception), "Unsupported key format")
+ 
+         pub = TPMT_PUBLIC.from_pem(ecc_public_key)
+         pub.parameters.eccDetail.curveID = TPM2_ECC.NONE
